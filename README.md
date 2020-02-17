@@ -5,7 +5,7 @@
 Collect bunch of data of account by it's ifsc in your terminal.
 
 ### Features:
-### using  https://ifsc.bankifsccode.com for data
+### using  <a href="https://ifsc.bankifsccode.com">this</a> for data
 
 ## Legal disclaimer:
 
@@ -20,5 +20,4 @@ python3 checkifsc.py
 ```
 
 ### Donate!
-Support the authors:
-Paypal: https://paypal.me/0x0is1?locale.x=en_GB
+Support the authors:<a href="https://paypal.me/0x0is1?locale.x=en_GB">here</a>
