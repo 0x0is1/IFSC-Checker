@@ -5,7 +5,7 @@
 Collect bunch of data of account by it's ifsc in your terminal.
 
 ### Features:
-### using  https://ifsc.bankifsccode.com/ for data
+### using  https://ifsc.bankifsccode.com for data
 
 ## Legal disclaimer:
 
