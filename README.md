@@ -1,3 +1,4 @@
+[![Build Status](https://app.bitrise.io/app/2d77b076b2b1520d/status.svg?token=2iEZlQWFpanMDWg8bjJFig)](https://app.bitrise.io/app/2d77b076b2b1520d)
 # IFSC Checker
 ## Author: github.com/0x0is1
 ## IG: instagram.com/0x0is1
@@ -20,4 +21,4 @@ python3 checkifsc.py
 ```
 
 ### Donate!
-Support the authors:<a href="https://paypal.me/0x0is1?locale.x=en_GB">here</a>
+Support the authors on<a href="https://paypal.me/0x0is1?locale.x=en_GB">Paypal</a>
