@@ -1,8 +1,12 @@
 # coding: utf-8
-import sys, select
 import requests
 from bs4 import BeautifulSoup
 import os
+import signal
+ 
+TIMEOUT = 5
+
+signal.signal(signal.SIGALRM, interrupted)
 
 def banner():
     a = '''
@@ -18,17 +22,16 @@ def banner():
 
 def check():
     if requests.get('https://example.com').ok:
-        print('You are Online')
+         print('You are Online')
     else:
          print("You're Offline")
          exit()
 
 def mainfun():
-    print "Enter IFSC Code:"
-    i, o, e = select.select( [sys.stdin], [], [], 10 )
-    ifsc = sys.stdin.readline().strip()
-    print(ifsc)
-    if(i):
+    try:
+        print ('You have 5 seconds to type in your stuff...')
+        ifsc = input("Enter IFSC code:")
+        signal.alarm(TIMEOUT)
         url = 'https://ifsc.bankifsccode.com/' + ifsc
         page = requests.get(url)
         soup = BeautifulSoup(page.content, 'lxml')
@@ -50,8 +53,11 @@ def mainfun():
             print('MICR Code: ' + link[6].get('href').split('/')[3].strip())
         except:
             print('MICR Code: ' + micr.next_sibling)
-    else:
-        exit()
+        signal.alarm(0)
+    except:
+            # timeout
+            exit()
+       
 
 os.system('clear')
 banner()
