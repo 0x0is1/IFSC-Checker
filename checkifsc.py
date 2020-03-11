@@ -1,4 +1,5 @@
 # coding: utf-8
+import sys, select
 import requests
 from bs4 import BeautifulSoup
 import os
@@ -19,32 +20,38 @@ def check():
     if requests.get('https://example.com').ok:
         print('You are Online')
     else:
-        print("You're Offline")
-        exit()
+         print("You're Offline")
+         exit()
 
 def mainfun():
-    ifsc = input('Enter IFSC Code:')
-    url = 'https://ifsc.bankifsccode.com/' + ifsc
-    page = requests.get(url)
-    soup = BeautifulSoup(page.content, 'lxml')
-    result = soup.find_all("div", {"class": "text"})[2]
-    address = result.find('b', text='Address:')
-    print('')
-    print('Address: ' + address.next_sibling)
-    link = result.find_all('a')
-    print('Bank: ' + link[0].get('href').split('/')[3].strip())
-    print('State: ' + link[1].get('href').split('/')[4].strip())
-    print('District: ' + link[2].get('href').split('/')[5].strip())
-    print('Branch: ' + link[4].get('href').split('/')[6].strip())
-    contact = result.find('b',text='Contact:')
-    print('Contact: ' + contact.next_sibling)
-    print('IFSC Code: ' + ifsc)
-    print('Branch Code: ' + ifsc[-6:])
-    micr = result.find('b',text='MICR Code:')
-    try:
-        print('MICR Code: ' + link[6].get('href').split('/')[3].strip())
-    except:
-        print('MICR Code: ' + micr.next_sibling)
+    print "Enter IFSC Code:"
+    i, o, e = select.select( [sys.stdin], [], [], 10 )
+    ifsc = sys.stdin.readline().strip()
+    print(ifsc)
+    if(i):
+        url = 'https://ifsc.bankifsccode.com/' + ifsc
+        page = requests.get(url)
+        soup = BeautifulSoup(page.content, 'lxml')
+        result = soup.find_all("div", {"class": "text"})[2]
+        address = result.find('b', text='Address:')
+        print('')
+        print('Address: ' + address.next_sibling)
+        link = result.find_all('a')
+        print('Bank: ' + link[0].get('href').split('/')[3].strip())
+        print('State: ' + link[1].get('href').split('/')[4].strip())
+        print('District: ' + link[2].get('href').split('/')[5].strip())
+        print('Branch: ' + link[4].get('href').split('/')[6].strip())
+        contact = result.find('b',text='Contact:')
+        print('Contact: ' + contact.next_sibling)
+        print('IFSC Code: ' + ifsc)
+        print('Branch Code: ' + ifsc[-6:])
+        micr = result.find('b',text='MICR Code:')
+        try:
+            print('MICR Code: ' + link[6].get('href').split('/')[3].strip())
+        except:
+            print('MICR Code: ' + micr.next_sibling)
+    else:
+        exit()
 
 os.system('clear')
 banner()
@@ -55,3 +62,12 @@ try:
 except:
     print('Bank may not be internationaly known!')
 
+    
+    
+
+'''
+if (i):
+  print "You said", sys.stdin.readline().strip()
+else:
+  print "You said nothing!"
+'''
