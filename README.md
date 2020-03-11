@@ -1,4 +1,5 @@
 [![Build Status](https://app.bitrise.io/app/2d77b076b2b1520d/status.svg?token=2iEZlQWFpanMDWg8bjJFig)](https://app.bitrise.io/app/2d77b076b2b1520d)
+[![Build Status](https://travis-ci.com/0x0is1/IFSC-Checker.svg?branch=master)](https://travis-ci.com/0x0is1/IFSC-Checker)
 # IFSC Checker
 ## Author: github.com/0x0is1
 ## IG: instagram.com/0x0is1
