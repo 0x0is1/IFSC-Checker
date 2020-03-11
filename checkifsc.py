@@ -5,7 +5,9 @@ import os
 import signal
  
 TIMEOUT = 5
-
+def interrupted(signum, frame):
+    "called when read times out"
+    print 'interrupted!'
 signal.signal(signal.SIGALRM, interrupted)
 
 def banner():
