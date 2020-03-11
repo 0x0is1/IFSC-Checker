@@ -46,10 +46,10 @@ def mainfun():
         print('MICR Code: ' + micr.next_sibling)
 
 os.system('clear')
-banner()
 check()
 print('')
 try:
+    banner()
     mainfun()
 except:
     print('Bank may not be internationaly known!')
