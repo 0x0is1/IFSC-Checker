@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import os
+import sys
 
 def banner():
     a = '''
@@ -45,11 +46,16 @@ def mainfun():
     except:
         print('MICR Code: ' + micr.next_sibling)
 
-os.system('clear')
-banner()
-check()
-print('')
-try:
-    mainfun()
-except:
-    print('Bank may not be internationaly known!')
+if __name__ == "__main__":
+    try:
+        if sys.argv[1] == '-v' or '--version':
+            print('checkifsc.py v0.1')
+    except:    
+        os.system('clear')
+        banner()
+        check()
+        print('')
+        try:
+            mainfun()
+        except:
+            print('Bank may not be internationaly known!')

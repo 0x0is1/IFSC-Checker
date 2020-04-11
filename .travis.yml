@@ -13,4 +13,4 @@ install:
 
 # Run the unit test
 script:
-  - python checkifsc.py
+  - python checkifsc.py -v
