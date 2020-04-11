@@ -1,3 +1,4 @@
+
 # Disable sudo to speed up the build
 sudo: false
 
@@ -5,12 +6,12 @@ sudo: false
 language: python
 
 # Set the python version to 2.7
-python: 2.7
+python: 3.7.3
 
-# Install the codecov pip dependency
+# Installing requirements
 install:
   - pip install -r req.txt
 
 # Run the unit test
 script:
-  - python checkifsc.py -v
+- python3 checkifsc.py -v
